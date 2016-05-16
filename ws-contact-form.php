@@ -55,9 +55,11 @@ class WS_Contact_Form {
 
     public function ws_contact_form_sendmail()
     {
+        $ws_cf_sender_name = get_option('wscontact-form-sender-name-option');
+        $ws_cf_sender_email = get_option('wscontact-form-sender-email-option');
+            
         $email = $_POST['ws_contact_email'];
-        $headers[] = 'Content-Type: text/html; charset=UTF-8';
-        $headers[] = "From: " . get_option('wscontact-form-sender-name-option') . " <" . get_option('wscontact-form-sender-email-option') . "> \r\n".'Reply-To: '.$email;
+        $headers = "From: " . $ws_cf_sender_name . " <" . get_option('wscontact-form-sender-email-option') . "> \r\n Reply-To: " . $email;
         $message = $_POST['ws_contact_comment'];
         $name = $_POST['ws_contact_name'];
         
@@ -73,7 +75,10 @@ class WS_Contact_Form {
 
         if (isset($name) && ws_email_valid($email) && isset($message))
         {
-            wp_mail( get_option('wscontact-form-recipient-name-option') . " <" . get_option('wscontact-form-recipient-email-option') . ">", get_option('wscontact-form-email-title-option'), get_option('wscontact-form-email-title-option') . ":\r\n " . __( 'Name', 'ws-contact-form' ) . ": " . $name . " \r\n " . __( 'Email', 'ws-contact-form' ) . ": " . $email . " \r\n " . __( 'Content', 'ws-contact-form' ) . ": ". $message, $headers);
+            $ws_cf_recipient_name = get_option('wscontact-form-recipient-name-option');
+            $ws_cf_recipient_email = get_option('wscontact-form-recipient-email-option');
+            $ws_cf_email_title = get_option('wscontact-form-email-title-option');
+            wp_mail( $ws_cf_recipient_name . " <" . $ws_cf_recipient_email . ">", $ws_cf_email_title, $ws_cf_email_title . ":\r\n " . __( 'Name', 'ws-contact-form' ) . ": " . $name . " \r\n " . __( 'Email', 'ws-contact-form' ) . ": " . $email . " \r\n " . __( 'Content', 'ws-contact-form' ) . ": ". $message, $headers);
             echo 'OK';
         }
         else {
