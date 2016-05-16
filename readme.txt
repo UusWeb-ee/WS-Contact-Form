@@ -11,7 +11,7 @@ Wordpress plugin for simple contact form what will allow to send message to desi
 
 == Description ==
 
-Simple contact form what will allow to send message to desired email. Simple to use webpage own styles, the default form is almoust without its own styles, what need to overwrited. Working with shortcode through ajax
+Simple contact form what will allow to send message to desired email. Simple to use web page own styles, default form is almoust without styles what need to be overwrited. Fill some fields in the plugin settings page and then just paste plugin shortcode to your post/page and form is working. Form data is sent through ajax query.
 
 == Installation ==
 
