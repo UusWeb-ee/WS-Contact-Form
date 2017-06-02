@@ -1,6 +1,7 @@
 # WS Contact Form
 
-Version:1.3.3
+* Version: 1.3.3
+* [Homepage](http://www.silvermuru.ee/en/wordpress/plugins/ws-contact-form/)
 
 Wordpress plugin for simple contact form what will allow to send message to desired email
 
