@@ -79,7 +79,7 @@ class WS_Contact_Form_admin {
             <h2 class="title"><?php echo _e( 'Shortcode', 'ws-contact-form' ); ?></h2>
             <p><?php echo _e( 'To get the form getting working properly it is important to fill all fields above', 'ws-contact-form' ); ?></p>
             <input class="regular-text" type="text" name="wscontact-form-shortcode" value="[ws-contact-form]" />
-            <p id="ws-contact-form-shortcode-description" class="description"><?php echo _e( 'Paste this code to your post/page in Text view activated', 'ws-contact-form' ); ?></p>
+            <p id="ws-contact-form-shortcode-description" class="description"><?php echo _e( 'Paste this code to your post/page/widget in Text view activated', 'ws-contact-form' ); ?></p>
         </div>
         <?php
     }

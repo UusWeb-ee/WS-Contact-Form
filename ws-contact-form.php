@@ -3,7 +3,7 @@
 * Plugin Name: WS Contact Form
 * Plugin URI: http://www.silvermuru.ee/en/wordpress/plugins/ws-contact-form/
 * Description: Simple contact form for Wordpress
-* Version: 1.0
+* Version: 1.3.3
 * Author: WebShark
 * Author URI: http://www.webshark.ee/
 * Text Domain: ws-contact-form
@@ -21,6 +21,7 @@ class WS_Contact_Form {
         add_action( 'wp_ajax_contacthomepage', array( $this, 'ws_contact_form_sendmail' ) );
         add_action( 'wp_ajax_nopriv_contacthomepage', array( $this, 'ws_contact_form_sendmail' ) );
         add_shortcode( 'ws-contact-form', array( $this, 'ws_contact_form_shortcode' ) );
+        add_filter( 'widget_text', 'do_shortcode' );
     }
     
     public function ws_contact_form_load_textdomain() {
@@ -28,19 +29,21 @@ class WS_Contact_Form {
 	}
     
     public function ws_contact_form_shortcode( $atts, $content = null ){
+        ob_start();
         if (get_option('wscontact-form-title-option') != false) {
             echo '<h3> ' . get_option('wscontact-form-title-option') . '</h3>';
         }
         ?>
         <form id="ws_contact_form" class="ws-form-group">
-            <div class="ws-hidden ws-message-response ws-message-successful" id="ws_contact_success"><?php echo _e( 'Message is sent successfully!', 'ws-contact-form' ); ?></div>
-            <div class="ws-hidden ws-message-response ws-message-error" id="ws_contact_error"><?php echo _e( 'There is problem with form', 'ws-contact-form' ); ?></div>
-            <input class="ws-form-control" type="text" name="ws_contact_name" id="ws_contact_name" placeholder="<?php echo _e( 'Name', 'ws-contact-form' ); ?> *">
-            <input class="ws-form-control" type="text" name="ws_contact_email" id="ws_contact_email" placeholder="<?php echo _e( 'Email', 'ws-contact-form' ); ?> *">
-            <textarea class="ws-form-control" name="ws_contact_comment" id="ws_contact_comment" placeholder="<?php echo _e( 'Content', 'ws-contact-form' ); ?> *"></textarea>
-            <button type="submit" id="ws_send_form"><?php echo _e( 'Send', 'ws-contact-form' ); ?></button>
+            <div class="ws-hidden ws-message-response ws-message-successful" id="ws_contact_success"><?php _e( 'Message is sent successfully!', 'ws-contact-form' ); ?></div>
+            <div class="ws-hidden ws-message-response ws-message-error" id="ws_contact_error"><?php _e( 'There is problem with form', 'ws-contact-form' ); ?></div>
+            <input class="ws-form-control" type="text" name="ws_contact_name" id="ws_contact_name" placeholder="<?php _e( 'Name', 'ws-contact-form' ); ?> *">
+            <input class="ws-form-control" type="text" name="ws_contact_email" id="ws_contact_email" placeholder="<?php _e( 'Email', 'ws-contact-form' ); ?> *">
+            <textarea class="ws-form-control" name="ws_contact_comment" id="ws_contact_comment" placeholder="<?php _e( 'Content', 'ws-contact-form' ); ?> *"></textarea>
+            <button type="submit" id="ws_send_form"><?php _e( 'Send', 'ws-contact-form' ); ?></button>
         </form>
         <?php
+        return ob_get_clean();
     }
     
     public function ws_contact_form_sript() {

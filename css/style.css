@@ -6,7 +6,7 @@
     margin-bottom: 5px
 }
 
-.ws-warning-input {
+.ws-warning-textarea, .ws-warning-input[type="text"] {
     background: #D87D7D
 }
 

@@ -6,6 +6,7 @@ jQuery(function() {
 		var email = jQuery('#ws_contact_email').val();
 		var comment = jQuery('#ws_contact_comment').val();
         
+        var hasError_name = true;
         if (name.length < 3) {
 			jQuery('#ws_contact_name').addClass('ws-warning-input');
 			hasError_name = true;
@@ -15,6 +16,7 @@ jQuery(function() {
 			hasError_name = false;
 		}
         
+        var hasError_email = true;
         if (!ws_validateEmail(email) || email.length < 3) {
 			jQuery('#ws_contact_email').addClass('ws-warning-input');
 			hasError_email = true;
@@ -23,13 +25,14 @@ jQuery(function() {
 			jQuery('#ws_contact_email').removeClass('ws-warning-input');
 			hasError_email = false;
 		}
-
+        
+        var hasError_comment = true;
 		if (comment.length < 3) {
-			jQuery('#ws_contact_comment').addClass('ws-warning-input');
+			jQuery('#ws_contact_comment').addClass('ws-warning-textarea');
 			hasError_comment = true;
 		}
 		else {
-			jQuery('#ws_contact_comment').removeClass('ws-warning-input');
+			jQuery('#ws_contact_comment').removeClass('ws-warning-textarea');
 			hasError_comment = false;
 		}
 
