@@ -1,4 +1,5 @@
 # WS Contact Form
+
 Version:1.3.3
 
 Wordpress plugin for simple contact form what will allow to send message to desired email
@@ -21,9 +22,20 @@ Plugin supports translations and WPML string translation functionality for both 
 
 ## Screenshots
 
+![alt text](https://www.silvermuru.ee/wp-content/uploads/2016/05/ws-contact-form-0.1.png "Form on page")
+
 1. Form on page
+
+![alt text](https://www.silvermuru.ee/wp-content/uploads/2016/05/ws-contact-form-0.2.png "Form when data is inserted incorrectly")
+
 2. Form when data is inserted incorrectly
+
+![alt text](https://www.silvermuru.ee/wp-content/uploads/2016/05/ws-contact-form-0.3.png "Form when message is sent successfully")
+
 3. Form when message is sent successfully
+
+![alt text](https://www.silvermuru.ee/wp-content/uploads/2016/05/ws-contact-form-0.4.png "Admin panel for settings")
+
 4. Admin panel for settings
 
 ## Changelog
